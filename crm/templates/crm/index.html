@@ -1,0 +1,21 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+
+{% block title %}Welcome{% endblock title %}
+{% block content %}
+<h1>WELCOME</h1>
+<ul class="store-associates">
+	{% for acount in account %}
+    {% for associate in acount.associates.all %}
+    <li>
+        <a href="{% url 'crm:how_to_proceed' associate.id %}" class="store-default">
+            <div class="circular-profile" style="background-image: url('{% static "learlight/images/derek_thomas.jpg" %}')"></div>
+            <span>{{ associate.first_name }} {{ associate.last_name }}</span>
+            <div>{{ associate.associate.associate_id }}</div>
+        </a>
+    </li>
+    {% endfor %}
+    {% endfor %}
+</ul>
+{% endblock content %}

@@ -1,0 +1,11 @@
+body {
+    padding-top: 50px;
+}
+.dashboard {
+    padding: 40px 15px;
+}
+.dashboard a.btn {
+    display: block;
+    width: 400px;
+    margin: 10px;
+}

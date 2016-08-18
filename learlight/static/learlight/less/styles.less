@@ -1,0 +1,67 @@
+@import "../lib/font-awesome-4.4.0/less/font-awesome.less";
+
+@import "mixins.less";
+
+@import "lib.less";
+
+@import "variables.less";
+
+@import "normalize.less";
+
+@import "layout.less";
+
+@import "links-buttons.less";
+
+@import "form.less";
+
+@import "typography.less";
+
+@import "list.less";
+
+@import "nav.less";
+
+@import "jewelry-images.less";
+
+/* ipad mini Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+  	main{
+  		width: 90%;
+  	}
+
+  	.btn-25{
+  		width: 25%;
+  	}
+
+  	.btn-35{
+  		width: 35%;
+  		padding-right: 0;
+  		padding-left: 0;
+  	}
+
+    .btn-login-crm{
+      width: 99%;
+    }
+
+    .btn-55{
+      width: 55%;
+    }
+
+  	.errorlist{
+		display: inline-block;
+		padding: 0;
+		margin: 0 0 0 0.5em;
+		list-style: none;
+		color: rgb(180, 7, 7);
+  	}
+
+  	a:active
+  	, button:active{
+  		background-color: @palette-dark-blue;
+  		color: @palette-white;
+  	}
+}

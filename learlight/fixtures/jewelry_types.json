@@ -1,0 +1,156 @@
+[
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:04:52.124Z",
+        "date_created": "2015-07-13T17:04:52.124Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Engagement Ring"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 5
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:05:11.211Z",
+        "date_created": "2015-07-13T17:05:11.211Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Ladies Ring"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 6
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:05:18.804Z",
+        "date_created": "2015-07-13T17:05:18.804Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Wedding Ring"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 7
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:05:26.898Z",
+        "date_created": "2015-07-13T17:05:26.898Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Pair Earrings"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 8
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:05:37.911Z",
+        "date_created": "2015-07-13T17:05:37.911Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Bracelet"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 9
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:05:45.215Z",
+        "date_created": "2015-07-13T17:05:45.215Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Gents Watch"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 10
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:05:52.302Z",
+        "date_created": "2015-07-13T17:05:52.302Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Gents Ring"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 11
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:06:02.381Z",
+        "date_created": "2015-07-13T17:06:02.381Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Necklace"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 12
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:06:08.338Z",
+        "date_created": "2015-07-13T17:06:08.338Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Pendant"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 13
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:06:16.314Z",
+        "date_created": "2015-07-13T17:06:16.314Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Ladies Watch"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 14
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:06:28.022Z",
+        "date_created": "2015-07-13T17:06:28.022Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Chain"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 15
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:06:35.832Z",
+        "date_created": "2015-07-13T17:06:35.832Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Brooch"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 16
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:06:43.419Z",
+        "date_created": "2015-07-13T17:06:43.419Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Single Earring"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 17
+},
+{
+    "fields": {
+        "date_updated": "2015-07-13T17:06:49.146Z",
+        "date_created": "2015-07-13T17:06:49.146Z",
+        "updated_by": 1,
+        "created_by": 1,
+        "name": "Other"
+    },
+    "model": "learlight.jewelrytype",
+    "pk": 18
+}
+]

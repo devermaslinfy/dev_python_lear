@@ -1,0 +1,102 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+{% load format %}
+
+{% block title %}Quote Summary{% endblock title %}
+
+{% block stylesheets %}
+<link href="{% static 'learlight/lib/swiper-3.1.2/swiper.min.css' %}" rel="stylesheet" />
+<link href="{% static 'crm/css/image_swiper.css' %}" rel="stylesheet" />
+{% endblock stylesheets %}
+
+{% block js %}
+<script type="application/javascript" src="{% static 'learlight/lib/swiper-3.1.2/swiper.jquery.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'crm/js/image_swiper_readonly.js' %}"></script>
+{% endblock js %}
+
+{% block content %}
+<ul class="list-steps">
+    <li><a href="{% url 'crm:information' customer.id %}"><i class="fa fa-check"></i></a></li>
+    <li><a href="{% url 'crm:quote_create' customer.id %}"><i class="fa fa-check"></i></a></li>
+    <li class="list-step-current"><span>3</span></li>
+</ul>
+
+<h1>Quote Summary</h1>
+{{ form.non_field_errors }}
+<form method="POST" action="{% url 'crm:quote_summary' customer.id %}" class="form-100 form-summary">
+    <div class="col-40-5 float-left">
+        {% csrf_token %}
+        <h2>{{ customer.jewelry_type }} || {{ customer.jewelry_value|currency }}</h2>
+        <dl>
+            <dt>Name:</dt>
+            <dd>{{ customer.first_name }} {{ customer.last_name }}</dd>
+            <dt>Email:</dt>
+            <dd>{{ customer.email }}</dd>
+            <dt>Address:</dt>
+            <dd>
+                {{ customer.address }}
+                {% if customer.city %}
+                    , {{ customer.city }}
+                {% endif %}
+                {% if customer.state %}
+                     {{ customer.state }}
+                {% endif %}
+                &nbsp;{{ customer.postal_code }}
+            </dd>
+            {% if customer.phone_number %}
+            <dt>Phone Number:</dt>
+            <dd>{{ customer.phone_number }}</dd>
+            {% endif %}
+            <!--
+            {% if customer.city %}
+            <dt>City:</dt>
+            <dd>{{ customer.city }}</dd>
+            {% endif %}
+            {% if customer.state %}
+            <dt>State:</dt>
+            <dd>{{ customer.state }}</dd>
+            {% endif %}
+            <dt>Zip Code:</dt>
+            <dd>{{ customer.postal_code }}</dd>
+            {% if customer.country %}
+            <dt>Country:</dt>
+            <dd>{{ customer.country }}</dd>
+            {% endif %}
+            <dt>Item Type:</dt>
+            <dd>{{ customer.jewelry_type }}</dd>
+            <dt>Estimated value:</dt>
+            <dd>{{ customer.jewelry_value|currency }}</dd>
+            <dt>Store Name:</dt>
+            <dd>{{ account.name }}</dd>
+            <dt>Associate's Name:</dt>
+            <dd>{{ associate.first_name }} {{ associate.last_name }}</dd>
+            -->
+        </dl>
+        {% if not customer.receipt_image_url %}
+        <div class="warning-receipt">
+            <div class="icon"><i class="fa fa-warning"></i></div>
+            <div class="msg"> You must submit a receipt within 5 days</div>
+        </div>
+        {% endif %}
+    </div>
+    <div class="col-55 float-left">
+        <div class="images-container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for image in images %}
+                    <div class="swiper-slide">
+                        <img src="{{ image.url }}"/>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix">
+        <a class="btn-primary btn-back float-left" href="{% url 'crm:quote_create' customer.id %}"><i class="fa fa-angle-left"></i> Back</a>
+        <a class="btn-primary btn-next btn-large float-right" href="{% url 'crm:quote_confirmation' customer.id %}">Send Quote <i class="fa fa-angle-right"></i></a>
+    </div>
+</form>
+{% endblock content %}

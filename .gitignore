@@ -1,0 +1,14 @@
+*~
+.DS_Store
+.idea
+*.log
+*.pid
+*.pyc
+*.pot
+server_settings.py
+gunicorn.py
+.vagrant
+*.sqlite3
+*.db
+staticfiles
+env.py

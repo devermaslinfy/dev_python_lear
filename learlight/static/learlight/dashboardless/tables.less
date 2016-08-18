@@ -1,0 +1,149 @@
+table.dataTable tbody th
+, table.dataTable tbody td{
+	padding: 0.75em 0;
+}
+
+table.top-three{
+
+	& thead{
+		background: none;
+		font-family: "Montserrat", Arial, sans-serif;
+		font-weight: 700;	
+		
+		& th{
+			text-align: center;
+			padding:0;
+			color: @font-light-gray;
+			text-transform: uppercase;
+			vertical-align: bottom;
+			border-bottom: solid 10px #fff;
+			font-weight: normal;
+		}
+
+		& th:first-child{
+			text-align: left !important;
+			color: @palette-light-blue;
+			font-size: 1.575em;
+			vertical-align: bottom;
+		}
+	}
+
+	& tr.odd{
+		background: #fcfcfc;
+	}
+
+	& tr.even{
+		background: #f8f8f8;
+	}
+
+	& td{
+		font-size: 1em;
+		text-align: center;
+		font-family: "Montserrat", Arial, sans-serif;
+		color: @palette-table-text;
+		border-bottom: solid 3px #fff;
+	}
+	
+	& td:first-child{
+		font-family: @font-family-bold;
+		color: @palette-light-blue;
+		text-align: left;
+	}
+
+	border:0 !important;
+	margin-bottom: 2em;
+	
+}
+
+table.all-stores{
+	& thead{
+		font-family: "Montserrat", Arial, sans-serif;
+		font-weight: 400;
+		color: @sort-table-font-color;
+
+		& th{
+			border-color: #a1a1a1;
+		}
+
+		& th:first-child{ 
+			text-align: left !important; 
+			padding-left: 0;
+		}
+
+		.sorting{
+			background-image: none;
+
+			& span{
+				background-color: @sort-table-inactive;
+				padding: 0.35em 0.85em;
+				border-radius: 0.35em;
+				font-weight: normal;
+			}
+
+			& span:after{
+				font-family: FontAwesome;
+				content: "\f0dc";
+				margin-left: 0.5em;
+			}
+		}
+
+		.sorting_desc{
+			background-image: none;
+			color: @palette-white;
+
+			& span{
+				background-color: @sort-table-active;
+				padding: 0.35em 0.85em;
+				border-radius: 0.35em;
+				font-weight: normal;
+			}
+
+			& span:after{
+				font-family: FontAwesome;
+				content: "\f0dd";
+				margin-left: 0.5em;
+			}
+		}
+
+		.sorting_asc{
+			background-image: none;
+			color: @palette-white;
+
+			& span{
+				background-color: @sort-table-active;
+				padding: 0.35em 0.85em;
+				border-radius: 0.35em;
+				font-weight: normal;
+			}
+			
+			& span:after{
+				font-family: FontAwesome;
+				content: "\f0de";
+				margin-left: 0.5em;
+			}
+		}
+	}//end of header styles
+
+	& td:not(:first-child){
+		text-align: center;
+	}
+
+	& td span{
+		display: block;
+	    margin-top: 0.2em;
+	    color: #A3A3A3;
+	    font-size: 0.9em;
+	}
+
+	& td{
+		border-bottom: solid 1px #dadada;
+		font-family: @font-family-sans-serif;
+	}
+
+	border:0 !important;
+	margin-bottom: 1em;
+}
+
+.dataTables_filter{
+	margin-bottom: 1.5em;
+}

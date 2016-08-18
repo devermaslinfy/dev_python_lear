@@ -1,0 +1,36 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+
+{% block title %}Customer Authorization{% endblock title %}
+{% block content %}
+<h1>Customer Authorization</h1>
+<h2>{{ account.name }} (#{{ account.external_id }})</h2>
+<div class="white-opacity">
+    <p class="message">
+        {% if customer.quote_requested %}
+        I hereby authorize the retailer above to provide a description of my jewelry purchase to Jewelers Mutual Insurance Company, along with my name and email address. I acknowledge and agree that Jewelers Mutual may email me a link to a free, no-obligation personal jewelry insurance quote. Please allow up to 3 business days (not including holidays).
+        {% else %}
+        By using this service, you are allowing Jewelers Mutual Insurance Company and your jeweler access to your provided name, address, email, phone number, and your complimentary jewelry image for marketing and promotional purposes. Jewelers Mutual, your jeweler and LearLabs never sell customer information.
+        {% endif %}
+    </p>
+</div>
+{{ form.non_field_errors }}
+<form method="POST" action="{% url 'crm:authorization' customer.id %}">
+    {% csrf_token %}
+    <fieldset class="blue special-checkbox">
+        <div class="holder">
+            <div class="center">
+                <input type="checkbox" id="checkbox-1-3" name="authorized" value="1"/><label for="checkbox-1-3"></label>
+            </div>
+            <label style="padding-top:1em;" class="float-right" for="checkbox-1-3">Check box to authorize</label>
+        </div>
+    </fieldset>
+    <div>
+        <button type="submit" class="btn-primary btn-next float-right">Next <i class="fa fa-angle-right"></i></button>
+    </div>
+    <div class="clearfix">
+        <a class="btn-secondary btn-back float-left" href="{% url 'crm:how_to_proceed' associate.id %}"><i class="fa fa-angle-left"></i> Back</a>
+    </div>
+</form>
+{% endblock content %}

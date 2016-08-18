@@ -1,0 +1,53 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+<link href="{% static 'learlight/lib/swiper-3.1.2/swiper.min.css' %}" rel="stylesheet" />
+<link href="{% static 'crm/css/image_swiper.css' %}" rel="stylesheet" />
+{% endblock stylesheets %}
+
+{% block js %}
+<script type="application/javascript" src="{% static 'learlight/lib/swiper-3.1.2/swiper.jquery.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'learlight/lib/jquery-observe-2.0.2.js' %}"></script>
+<script type="application/javascript" src="{% static 'crm/js/image_swiper.js' %}"></script>
+{% endblock js %}
+
+{% block title %}Email Photo{% endblock title %}
+
+{% block content %}
+<ul class="list-steps">
+    <li><a href="{% url 'crm:information' customer.id %}"><i class="fa fa-check"></i></a></li>
+    <li class="list-step-current"><span>2</span></li>
+</ul>
+<h1>Email Photo</h1>
+{{ form.non_field_errors }}
+<form method="POST" action="{% url 'crm:email_photo' customer.id %}" class="form-60">
+    {% csrf_token %}
+    <div class="images-container">
+        <div class="no-jewelry-pics">
+            <i class="fa fa-picture-o"></i>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="delete-image delete-close">
+            <p>Delete this picture?</p>
+            <a class="btn-delete btn-yes" href="#">Yes</a>
+            <a class="btn-delete btn-no" href="#">No</a>
+        </div>
+        <div class="images-delete">
+            <a href="#"><i class="fa fa-trash"></i></a>
+        </div>
+    </div>
+    <fieldset>
+        {% include 'crm/_jewelry_photo_input.html' with photo_type='jewelry' %}
+        <div class="clearfix">
+            <a class="btn-primary btn-back float-left" href="{% url 'crm:information' customer.id %}"><i class="fa fa-angle-left"></i> Back</a>
+            <button type="submit" class="btn-primary float-right">Email Photo</button>
+        </div>
+    </fieldset>
+</form>
+{% endblock content %}

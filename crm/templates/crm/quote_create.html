@@ -1,0 +1,117 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}
+<link href="{% static 'learlight/lib/swiper-3.1.2/swiper.min.css' %}" rel="stylesheet" />
+<link href="{% static 'crm/css/image_swiper.css' %}" rel="stylesheet" />
+{% endblock stylesheets %}
+
+{% block js %}
+<script type="application/javascript" src="{% static 'learlight/lib/swiper-3.1.2/swiper.jquery.min.js' %}"></script>
+<script type="application/javascript" src="{% static 'learlight/lib/jquery-observe-2.0.2.js' %}"></script>
+<script type="application/javascript" src="{% static 'crm/js/image_swiper.js' %}"></script>
+{% endblock js %}
+
+{% block title %}Create A Quote{% endblock title %}
+
+{% block content %}
+{% block contentslider %}
+<div id="image-detail" class="image-detail image-zoom-close">
+    <div class="image-detail-header">
+        <a id="close-image-detail" href="#">
+            <i class="fa fa-times"></i>
+        </a>
+    </div>
+    <div id="detail-receipt-content" class="content-inner text-center hidden">
+        <h1>Receipt</h1>
+        <div id="receipt-image">
+            {% if customer.receipt_image_url %}
+            <img src="{{ customer.receipt_image_url }}"/>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="tooltip-value" class="content-inner text-center hidden">
+        <h1>Value</h1>
+        <p>The value of the jewelry item listed on a recent detailed receipt or appraisal. This value will be the most we will pay for repair or replacement in the event of a jewelry damage or loss.</p>
+    </div>
+
+    <div id="tooltip-receipt" class="content-inner text-center hidden">
+        <h1>Photo of Receipt</h1>
+        <p>You can continue without a receipt or appraisal if you don't have one available right now.  You have 10 days to submit a recent appraisal, evaluation, or detailed receipt via email upon application submission.</p>
+    </div>
+
+</div>
+{% endblock contentslider %}
+
+<div id="overlay-no-spiner" class="overlay-screen hidden"></div>
+<div class="overlay-screen hidden"><i class="fa fa-spinner fa-spin"></i></div>
+<ul class="list-steps">
+    <li><a href="{% url 'crm:information' customer.id %}"><i class="fa fa-check"></i></a></li>
+    <li class="list-step-current"><span>2</span></li>
+    <li class="list-step-next"><span>3</span></li>
+</ul>
+<h1>Jewelry Item Details</h1>
+{{ form.non_field_errors }}
+<form method="POST" action="{% url 'crm:quote_create' customer.id %}" class="form-100">
+    {% csrf_token %}
+    {{ form.receipt_image_url }}
+    <div class="col-40-5 float-left">
+        <fieldset>
+            <label for="{{ form.jewelry_type.id_for_label }}">Jewelry Type:</label>
+            {{ form.jewelry_type }}
+            {{ form.jewelry_type.errors }}
+        </fieldset>
+        <fieldset>
+            <label for="{{ form.jewelry_value.id_for_label }}" class="show-block">Value:</label>
+            <input type="number" id="{{ form.jewelry_value.id_for_label }}" placeholder="$0.00" class="form-control" name="jewelry_value" value="{{ form.jewelry_value.value|default_if_none:'' }}" required style="width: 71%;">
+            <a href="#" id="item-value" class="btn btn-tooltip">
+                <i class="fa fa-question-circle"></i>
+            </a>
+            {{ form.jewelry_value.errors }}
+        </fieldset>
+        <fieldset>
+            {% include 'crm/_receipt_photo_input.html' with photo_type='receipt' button_label='Take Photo of Receipt' %}
+        </fieldset>
+    </div>
+    <div class="col-55 float-left">
+        <div class="images-container">
+            <div class="no-jewelry-pics">
+                <i class="fa fa-picture-o"></i>
+            </div>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% for image in images %}
+                    <div class="swiper-slide">
+                        <img src="{{ image.url }}"/>
+                    </div>
+                    {% endfor %}
+                </div>
+                
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="delete-image delete-close">
+                <p>Delete this picture?</p>
+                <a class="btn-delete btn-yes" href="#">Yes</a>
+                <a class="btn-delete btn-no" href="#">No</a>
+            </div>
+            
+            <!--div class="images-zoom">
+                <a id="open-image-detail" href="#"><i class="fa fa-search-plus"></i></a>
+            </div-->
+
+            <div class="images-delete">
+                <a href="#"><i class="fa fa-trash"></i></a>
+            </div>
+        </div>
+        <fieldset>
+            {% include 'crm/_jewelry_photo_input.html' with photo_type='jewelry' button_label='Take Picture of Jewelry Item' %}
+        </fieldset>
+    </div>
+    <div class="clearfix clear-left">
+        <a class="btn-secondary btn-back float-left" href="{% url 'crm:information' customer.id %}"><i class="fa fa-angle-left"></i> Back</a>
+        <button type="submit" class="btn-primary btn-next float-right">Next <i class="fa fa-angle-right"></i></button>
+    </div>
+</form>
+{% endblock content %}

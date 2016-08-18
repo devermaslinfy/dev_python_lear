@@ -1,0 +1,108 @@
+@img-log-padding: 				0.5em 0;
+
+
+a{
+	color: @link-color;
+}
+
+button
+, .btn{
+	//background-color: @palette-light-blue;
+
+	color: #fff;
+	border: solid 1px #007cb3;
+	//width: 99%;
+	padding: 1em 1em;
+	text-transform: uppercase;
+}
+
+.take-picture{ 
+	background-color: #8d8d8d;
+	border-color: #9f9f9f;
+	text-align: left;
+	width: 100%;
+	padding-left: 5%;
+}
+
+.receipt-taken{
+	.btn;
+	.take-picture;
+	background: @palette-dark-blue;
+	border:0;
+	text-decoration: none;
+	display: inline-block;
+	width: 70%;
+}
+
+.btn-primary{
+	.btn;
+	.gradient(@palette-light-blue; #006FA0);
+	display: inline-block;
+	//width: 40%;
+	text-decoration: none;
+	margin: 1em 0;
+}
+
+	.btn-secondary{
+		.btn;
+		.gradient(#e5e5e5; #b7b7b7);
+		display: inline-block;
+		text-decoration: none;
+		margin: 1em 0;
+		border-color: #9B9B9B;
+		color: #434343;
+	}
+
+.btn-back
+, .btn-next{
+	text-align: center;
+	//width: 12%;
+}
+
+.btn-tooltip{
+	background-color: #007cb3;
+    font-size: 1.25em;
+    padding: 0.59em 0.65em 0.65em 0.65em;
+    margin-left: 0.25em;
+    color: #fff;
+    display: inline-block;
+}
+
+.form-centered .btn-back
+, .form-centered .btn-next{
+	//width: 30%;
+}
+
+.link-jm-logo{
+	display: inline-block;
+	width: 17%;
+	padding: 0.2em 0.5em 0 0;
+	//padding-right: 1.5%;
+	float: left;
+}
+
+.link-ll-logo{
+	display: inline-block;
+	width: 9.25%;
+	padding: 0.2em 0 0 0.5em;
+    margin-top: 0.5em;
+	border-left: 1px solid #73C1E3;
+	float: left;
+}
+
+.store-loggedin{
+	.float-right;
+	display: inline-block;
+	background-color: @palette-medium-blue;
+	padding: 1.25em 4%;
+	color: @palette-white;
+	text-decoration: none;
+}
+
+.menu-app{
+	.float-right;
+	padding: 1.25em;
+	display: inline-block;
+	background-color: @palette-dark-blue;
+	color: @palette-white;
+}

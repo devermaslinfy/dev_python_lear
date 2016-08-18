@@ -1,0 +1,48 @@
+.image-detail{
+	position: absolute;
+	right: 0;
+	width: 60%;
+	background-color: @palette-white;
+	min-height: 100%;
+	z-index: 15;
+
+	&-header{
+		width: 100%;
+		background: #ebebeb;
+
+		& a{
+			display: inline-block;
+			padding: 1em;
+			background: #cccccc;
+			color: #787878;
+			padding: 0.625em 0.75em;
+			font-size: 1.5em;
+		}
+	}
+
+	&-content{
+		width: 80%;
+		margin: 0 auto;
+		padding: 2em 0;
+		text-align: center;
+	}
+}
+
+.transition-details{
+	-webkit-transition: all 500ms cubic-bezier(.2,.07,.74,.99); 
+	   -moz-transition: all 500ms cubic-bezier(.2,.07,.74,.99); 
+	     -o-transition: all 500ms cubic-bezier(.2,.07,.74,.99); 
+	        transition: all 500ms cubic-bezier(.2,.07,.74,.99);
+}
+
+.image-zoom-close{
+	right: -60%;
+	width: 0;
+	overflow: hidden;
+	.transition-details;
+}
+.image-zoom-open{
+	right: 0%;
+	width: 60%;
+	.transition-details;
+}

@@ -1,0 +1,14 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+
+{% block title %}How would you like to proceed?{% endblock title %}
+{% block content %}
+<h1>How would you like to proceed?</h1>
+<div>
+    <a class="btn-primary btn-55" href="{% url 'crm:authorization' customer.id %}?quote=true">Get a free quote and photo</a>
+</div>
+<div>
+    <a class="btn-secondary btn-55" href="{% url 'crm:authorization' customer.id %}">Email a photo</a>
+</div>
+{% endblock content %}

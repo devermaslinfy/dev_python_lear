@@ -1,0 +1,139 @@
+//context 2880
+@content-width:				95%;
+html
+, body{ 
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+img { max-width: 100%; }
+
+.util-bar{
+	width: 100%;
+	height: 0.75em * 5;
+	background: @palette-dark-blue;
+}
+
+.left-column{
+	width: 25%;
+	background: @palette-light-blue;
+	height: 100%;
+	display: inline-block;
+	float: left;
+	
+	& .acc-branding{
+		width: 100% - (6.666666666667*2);
+		padding: 1.5em 6.666666666667%;
+	}
+
+	& img{
+		margin-bottom: 0.75em;
+	}
+
+	& .logedin-user-img{
+		width: 40%;
+		display: block;
+		margin-left: auto;
+		margin-right: auto;	
+		border-radius: 100%;
+	}
+}
+
+
+main{
+	width: 75%;
+	display: inline-block;
+	float: left;
+}
+
+.content{
+	display: inline-block;
+	width: @content-width;
+	padding: 0em 2.5% 1.5em 2.5%;
+}
+
+.col-1{
+	display: inline-block;
+	width: 100%;
+}
+
+.col-3{
+	width: 100/3%;
+	display: inline-block;
+	float: left;
+}
+
+//two thirds of space
+.col-2-3{
+	width: (100/3) * 2%;
+	display: inline-block;
+	float: left;
+}
+
+/*********** DASHBOARD HOMEPAGE ONLY (START) ***************/
+.col-top-3{
+	width: 54.761904761905%;
+	display: inline-block;
+	float:left;
+}
+
+.col-action-btn{
+	width: 45.238095238095%;
+	display: inline-block;
+	float: left;
+}
+
+.summary{
+
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+
+	&-title{
+		width: 100%;
+		text-align: center;
+		font-family: "Montserrat", Arial, sans-serif; 
+		font-weight: 700;
+		position: relative;
+
+		& .count{
+			font-size: 30/16em;
+			color: @palette-light-blue;
+			display: block;
+		}
+
+		& .name{
+			font-size: 20/16em;
+			color: @font-light-gray;
+			display: block;
+		}
+
+		& a{
+			position: absolute;
+			top: 0.5em;
+			right: 5%;
+		}
+	}
+
+	&:nth-child(even){
+		background: @palette-light-gray;
+	}
+
+}
+
+.summary-daily{
+	width: 100%;
+	border: solid 0.15em @palette-light-gray;
+	display: inline-block;
+
+	& .daily-summary{
+		border-right-style: dashed;
+		border-color:  @palette-light-gray;
+		width: ((100/3) * 2%) - 1%;
+	}
+
+}
+
+
+
+/*********** DASHBOARD HOMEPAGE ONLY (END) ***************/

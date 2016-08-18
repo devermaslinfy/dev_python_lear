@@ -1,0 +1,160 @@
+{% extends 'learlight/base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<h1><a href="{% url 'dashboard:accounts' %}">Accoutns</a> <i class="fa fa-chevron-right"></i> ACME</h1>
+
+<div class="col-top-3">
+    <table id="top-accounts" class="top-three" cellspacing="0" width="100%">
+    	<thead>
+    		<tr>
+    			<th>Top 3 Stores</th>
+    			<th>Quotes</th>
+    			<th>Pictures</th>
+    			<th>Drops</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+    			<td><a href="#">Burlington Mall</a></td>
+    			<td>1000</td>
+    			<td>500</td>
+    			<td>200</td>
+    		</tr>
+    		<tr>
+    			<td><a href="#">Pheasant Lane Mall</a></td>
+    			<td>1000</td>
+    			<td>500</td>
+    			<td>200</td>
+    		</tr>
+    		<tr>
+    			<td><a href="#">Cambridge Side Gallery</a></td>
+    			<td>1000</td>
+    			<td>500</td>
+    			<td>200</td>
+    		</tr>
+    	</tbody>
+    </table>
+</div>
+<div class="col-action-btn">
+    <a href="#" class="action-big secondary two-btns"><i class="fa fa-pencil"></i> Edit Account</a>
+	<a href="#" class="action-big primary two-btns"><i class="fa fa-plus"></i> Add Account</a>
+</div>
+
+<div class="col-2-3">
+	<table id="" class="all-stores" cellspacing="0" width="100%">
+    	<thead>
+    		<tr>
+    			<th><span>Store</span></th>
+    			<th><span>Associates</span></th>
+    			<th><span>Quotes</span></th>
+    			<th><span>Pictures</span></th>
+    			<th><span>Drops</span></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+    			<td><a href="{% url 'dashboard:burlington' %}">Burlington Mall</a><span class="location">Burlington, MA</span></td>
+    			<td>25</td>
+    			<td>3982</td>
+    			<td>24</td>
+    			<td>8</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:burlington' %}">Pheasant Lane Mall</a><span class="location">Nashua, NH</span></td>
+    			<td>37</td>
+    			<td>495</td>
+    			<td>86</td>
+    			<td>4</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:burlington' %}">Cambridge Side Gallery</a><span class="location">Cambridge, MA</span></td>
+    			<td>30</td>
+    			<td>684</td>
+    			<td>36</td>
+    			<td>8</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:burlington' %}">Test Store</a><span class="location">New York, NY</span></td>
+    			<td>58</td>
+    			<td>2048</td>
+    			<td>95</td>
+    			<td>9</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:burlington' %}">Don't do it</a><span class="location">Las Vegas, NV</span></td>
+    			<td>26</td>
+    			<td>5896</td>
+    			<td>17</td>
+    			<td>3</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:burlington' %}">Ball in chain</a><span class="location">Alcatraz, SF</span></td>
+    			<td>45</td>
+    			<td>456</td>
+    			<td>34</td>
+    			<td>7</td>
+    		</tr>
+    	</tbody>
+    </table>
+</div>
+
+<div class="col-3">
+    <canvas id="totalChart"></canvas>
+    <div class="daily-attaintment">
+        <span class="attaintment">
+            Attaintment Total
+        </span>
+        <span class="attaintment-total">
+            $3,000,000.00
+        </span>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+<script>
+
+	$(document).ready(function() {
+	    $('.top-three').DataTable({
+	    	"paging":   false,
+	        "ordering": false,
+	        "info":     false,
+	        "searching":   false
+	    });
+
+	    $('.all-stores').DataTable({
+            "lengthChange": false
+        });
+
+        var pieData = [
+           {
+              value: 40,
+              label: 'Quote Submitted',
+              color: '#79c08a'
+           },
+           {
+              value: 20,
+              label: 'Picture Submitted',
+              color: '#0195d4'
+           },
+           {
+              value: 10,
+              label: 'Abandon',
+              color: '#f96332'
+           }
+        ];
+
+        // Get the context of the canvas for the total chart
+        var totalChartCtx = document.getElementById("totalChart").getContext("2d");
+        var totalActivityDoughnut = new Chart(totalChartCtx).Doughnut(pieData);
+
+	} );
+
+</script>
+{% endblock js %}

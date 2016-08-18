@@ -1,0 +1,40 @@
+@secondary-btn-bkg:				#ebebeb;
+@secondary-btn-color:			#a3a3a3;
+
+
+a{
+	color: @palette-light-blue;
+}
+
+.action-big{
+	display: block;
+	width: 45%;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 0 auto;
+	padding: 1.5em 0;
+	text-decoration: none;
+	font-family: "Montserrat", Arial, sans-serif; 
+	font-size: 1.15em;
+
+	&.primary{
+		color: @palette-white;
+		background: @palette-light-blue;
+	}
+
+	&.secondary{
+		color: @secondary-btn-color;
+		background-color: @secondary-btn-bkg;
+	}
+
+	&.two-btns{
+		margin-left: 2.5%;
+		float: left;
+	}
+
+	& .fa{
+		display: inline-block;
+		width: 100%;
+		text-transform: center;
+	}
+}

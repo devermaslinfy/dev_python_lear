@@ -1,0 +1,53 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+
+{% block title %}Customer Information{% endblock title %}
+{% block content %}
+<ul class="list-steps">
+    <li class="list-step-current"><span>1</span></li>
+    <li class="list-step-next"><span>2</span></li>
+    {% if customer.quote_requested %}
+        <li class="list-step-next"><span>3</span></li>
+    {% endif %}
+</ul>
+
+<h1>Customer Information</h1>
+{{ form.non_field_errors }}
+<form method="POST" action="{% url 'crm:information' customer.id %}" class="form-customer-info">
+    {% csrf_token %}
+    <fieldset>
+        <label for="{{ form.first_name.id_for_label }}">First Name:</label>{{ form.first_name.errors }}
+        <input type="text" id="{{ form.first_name.id_for_label }}" placeholder="First Name" class="form-control" name="first_name" value="{{ form.first_name.value|default_if_none:'' }}" required>
+    </fieldset>
+    <fieldset>
+        <label for="{{ form.last_name.id_for_label }}">Last Name:</label>{{ form.last_name.errors }}
+        <input type="text" id="{{ form.last_name.id_for_label }}" placeholder="Last Name" class="form-control" name="last_name" value="{{ form.last_name.value|default_if_none:'' }}" required>
+    </fieldset>
+    {% if customer.quote_requested %}
+    <fieldset class="fieldset-address">
+        <label for="{{ form.address.id_for_label }}">Street Address:</label>{{ form.address.errors }}
+        <input type="text" id="{{ form.address.id_for_label }}" placeholder="Address" class="form-control" name="address" value="{{ form.address.value|default_if_none:'' }}" required>
+    </fieldset>
+    <fieldset class="fieldset-zip">
+        <label for="{{ form.postal_code.id_for_label }}">Zip code:</label>{{ form.postal_code.errors }}
+        <input type="text" id="{{ form.postal_code.id_for_label }}" placeholder="Zip code" class="form-control" name="postal_code" value="{{ form.postal_code.value|default_if_none:'' }}" required>
+    </fieldset>
+    <fieldset class="fieldset-zip">
+        <label for="{{ form.phone_number.id_for_label }}">Phone Number:</label>{{ form.phone_number.errors }}
+        <input type="tel" id="{{ form.phone_number.id_for_label }}" placeholder="Phone Number" class="form-control" name="phone_number" value="{{ form.phone_number.value|default_if_none:'' }}">
+    </fieldset>
+    
+    <fieldset class="fieldset-address">
+    {% else %}
+    <fieldset class="fieldset-email">
+    {% endif %}
+        <label for="{{ form.email.id_for_label }}">Email:</label>{{ form.email.errors }}
+        <input type="text" id="{{ form.email.id_for_label }}" placeholder="Email address" class="form-control" name="email" value="{{ form.email.value|default_if_none:'' }}" required>
+    </fieldset>
+    <div class="clearfix">
+        <a class="btn-secondary btn-back float-left" href="{% url 'crm:authorization' customer.id %}"><i class="fa fa-angle-left"></i> Back</a>
+        <button type="submit" class="btn-primary btn-next float-right">Next <i class="fa fa-angle-right"></i></button>
+    </div>
+</form>
+{% endblock content %}

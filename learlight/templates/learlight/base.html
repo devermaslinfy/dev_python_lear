@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="{% static 'learlight/css/jquery.dataTables.min.css' %}" rel="stylesheet">
+        <link href="{% static 'learlight/css/dashboard.css' %}" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+
+        {% block stylesheets %}{% endblock stylesheets %}
+
+        <title>LearLiteCRM Dashboard</title>
+    </head>
+    <body>
+        {% block slider %}{% endblock slider %}
+        {% block navbar %}
+        <div class="left-column">
+            <div class="acc-branding">
+                
+                <img src="{% static 'learlight/images/dashboard_learlite_logo.png' %}" alt="" title="" />
+
+                <img class="logedin-user-img" src="{% static 'learlight/images/derek_thomas.jpg' %}" alt="" title="" />
+            </div>
+            <nav class="main-nav">    
+                <ul>
+                    <li><a href="{% url 'logout' %}">Log Out</a></li>
+                    <li><a href="{% url 'dashboard:index' %}"><i class="fa fa-area-chart"></i>Dahsboard</a></li>
+                    <li><a href="{% url 'dashboard:accounts' %}"><i class="fa fa-list-alt"></i>Accounts</a></li>
+                    <li><a href="{% url 'dashboard:leads_and_quotes' %}"><i class="fa fa-bar-chart"></i>Leads and Quotes</a></li>
+                    <li><a class="btn btn-primary btn-lg" href="/admin/auth/user">Manage Users</a></li>
+                    <li><a class="btn btn-primary btn-lg" href="/admin/learlight/account">Manage Accounts</a></li>
+                    <li><a class="btn btn-primary btn-lg" href="/admin/learlight/jewelrytype">Manage Jewelry Types</a></li>
+                    <li><a class="btn btn-primary btn-lg" href="{% url 'dashboard:export_transaction_data' %}">Download Transaction Data</a></li>
+                </ul>
+                
+            </nav>
+        </div>
+        {% endblock navbar %}
+        <main class="main-container">
+            <div class="util-bar">
+
+            </div>
+            <div class="content">
+                {% block content %}{% endblock content %}
+            </div>
+        </main>
+
+        <script src="{% static 'learlight/js/jquery-1.11.3.min.js' %}"></script>
+        <script src="{% static 'learlight/js/underscore-1.8.3.min.js' %}"></script>
+        <script src="{% static 'learlight/js/lib.js' %}"></script>
+        <script src="{% static 'learlight/js/jquery.dataTables.min.js' %}"></script>
+        
+
+        {% block js %}{% endblock js %}
+    </body>
+</html>

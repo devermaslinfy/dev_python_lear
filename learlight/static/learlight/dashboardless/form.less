@@ -1,0 +1,64 @@
+select.custome {
+    font-size: 0.9em;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    color: black;
+    padding: 0.5em 5%;
+    width: 100%;
+    -webkit-appearance: none;
+
+    background:none;
+    
+    background-transparency: 0.5;
+    background-position: right 15px top 11px;
+    background-size: 18px 18px;
+
+    & option:after{
+        font-family: FontAwesome;
+        content: "\f077";
+        margin-left: 0.5em;
+    }
+}
+select.custome:active {
+    border: 1px solid #000;
+}
+
+.form-dd {position:relative}
+.form-dd:after {
+    content: "\f078";
+    font-family: "FontAwesome";
+    font-size: 0.9em;
+    color: #aaa;
+    right: 0.75em;
+    top: 0.75em;
+    padding: 0;
+    position: absolute;
+    pointer-events:none;
+}
+.form-dd:before {
+    content:'';
+    right: 0.75em;
+    top: 0.75em;
+    width:23px; height:18px;
+    background:#fff;
+    position:absolute;
+    pointer-events:none;
+    display:block;
+}
+
+fieldset{
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 31.9%;
+    margin-right: 1%;
+}
+
+label{
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: (15/16) * 1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #0a0a0a;
+}

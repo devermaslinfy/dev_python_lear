@@ -1,0 +1,74 @@
+[
+{
+    "fields": {
+        "updated_by": 1,
+        "date_updated": "2015-08-08T18:09:12.014Z",
+        "associate_id": "Y06YST",
+        "created_by": 1,
+        "user": 4,
+        "date_created": "2015-08-08T18:09:12.014Z"
+    },
+    "model": "learlight.associate",
+    "pk": 1
+},
+{
+    "fields": {
+        "updated_by": 1,
+        "date_updated": "2015-08-08T18:09:29.613Z",
+        "associate_id": "RWA3XO",
+        "created_by": 1,
+        "user": 5,
+        "date_created": "2015-08-08T18:09:29.613Z"
+    },
+    "model": "learlight.associate",
+    "pk": 2
+},
+{
+    "fields": {
+        "updated_by": 1,
+        "date_updated": "2015-08-08T18:09:51.787Z",
+        "associate_id": "RFMJYN",
+        "created_by": 1,
+        "user": 6,
+        "date_created": "2015-08-08T18:09:51.787Z"
+    },
+    "model": "learlight.associate",
+    "pk": 3
+},
+{
+    "fields": {
+        "updated_by": 1,
+        "date_updated": "2015-08-08T18:09:59.768Z",
+        "associate_id": "3JTA5A",
+        "created_by": 1,
+        "user": 7,
+        "date_created": "2015-08-08T18:09:59.768Z"
+    },
+    "model": "learlight.associate",
+    "pk": 4
+},
+{
+    "fields": {
+        "updated_by": 1,
+        "date_updated": "2015-08-08T18:10:06.860Z",
+        "associate_id": "79X3A5",
+        "created_by": 1,
+        "user": 8,
+        "date_created": "2015-08-08T18:10:06.860Z"
+    },
+    "model": "learlight.associate",
+    "pk": 5
+},
+{
+    "fields": {
+        "updated_by": 1,
+        "date_updated": "2015-08-08T18:10:27.932Z",
+        "associate_id": "XJK1U8",
+        "created_by": 1,
+        "user": 9,
+        "date_created": "2015-08-08T18:10:27.932Z"
+    },
+    "model": "learlight.associate",
+    "pk": 6
+}
+]

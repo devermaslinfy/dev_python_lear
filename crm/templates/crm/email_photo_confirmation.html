@@ -1,0 +1,12 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+
+{% block title %}Quote Confirmation{% endblock title %}
+{% block content %}
+<h1>Photo Sent</h1>
+<h3>Please check your email for the LearLite photo of your jewelry.</h3>
+<div class="clearfix">
+    <a class="btn-primary btn-next" href="{% url 'crm:index' %}">Return Home</a>
+</div>
+{% endblock content %}

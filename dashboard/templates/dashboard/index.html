@@ -1,0 +1,179 @@
+{% extends 'learlight/base.html' %}
+
+{% load static %}
+{% load humanize %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<div class="col-3 summary">
+	<div class="summary-title">
+		<span class="count">{{total_accounts}}</span>
+		<span class="name">Accounts</span>
+		<a href="#"><i class="fa fa-plus-square"></i></a>
+	</div>
+	{% if total_accounts > 0 %}
+	<ol>
+		{% for account in top_accounts %}
+		<li><a href="#"><span class="store">{{account.name}}</span></a></li>
+		{% endfor %}
+	</ol>
+	{% endif %}
+</div>
+<div class="col-3 summary">
+	<div class="summary-title">
+		<span class="count">{{total_stores}}</span>
+		<span class="name">Stores</span>
+		<a href="#"><i class="fa fa-plus-square"></i></a>
+	</div>
+	{% if total_stores > 0 %}
+	<ol class="store-location">
+		{% for store in top_stores %}
+		<li>
+			<a href="#">
+				<span class="store">{{store.name}}</span>
+				<span class="location">{{store.city}}, {{store.state}}</span>
+			</a>
+		</li>
+		{% endfor %}
+	</ol>
+    {% endif %}
+</div>
+<div class="col-3 summary">
+	<div class="summary-title">
+		<span class="count">{{total_associates}}</span>
+		<span class="name">Associates</span>
+		<a href="#"><i class="fa fa-plus-square"></i></a>
+	</div>
+	{% if total_associates > 0 %}
+	<ol>
+		{% for associate in top_associates %}
+		<li><a href="#"><span class="store">{{associate.last_name}}, {{associate.first_name}}</span></a></li>
+		{% endfor %}
+	</ol>
+	{% endif %}
+</div>
+<div class="summary-daily">
+	<div class="col-2-3 daily-summary">
+		<canvas id="totalChart" width="300" height="300"></canvas>
+	</div>
+	<div class="col-3 daily-attaintment">
+		<span class="attaintment">
+			Attainment Total
+		</span>
+		<span class="attaintment-total">
+			${{total_jewelry_value_today|intcomma}}
+		</span>
+	</div>
+</div>
+<div class="col-2-3">
+	<canvas id="monthlyChart" width="1636" height="818"></canvas>
+</div>
+<div class="col-3">
+	<!--fieldset>
+		<label for="account">Quick Message to:</label>
+		<select name="account">
+			<option>Choose and account</option>
+			<option>Zales</option>
+			<option>Kay</option>
+			<option>Another</option>
+		</select>
+	</fieldset>
+	<fieldset>
+		<label for="subject">Subject:</label>
+		<input name="subject" type="text" />
+	</fieldset>
+	<fieldset>
+		<label for="message">Message:</label>
+		<textarea row="6" cols="10"></textarea>
+	</fieldset-->
+</div>
+{% endblock content %}
+{% block js %}
+<script>
+window.DASHBOARD_CONTEXT = {{javascript_context|safe}};
+
+(function() {
+    var DTX = DASHBOARD_CONTEXT;
+
+	var pieData = [
+	   {
+	      value: DTX.total_quotes_today,
+	      label: 'Quote Submitted',
+	      color: '#79c08a'
+	   },
+	   {
+	      value: DTX.total_emails_today,
+	      label: 'Picture Submitted',
+	      color: '#0195d4'
+	   },
+	   {
+	      value: DTX.total_drops_today,
+	      label: 'Abandon',
+	      color: '#f96332'
+	   }
+	];
+    
+    var pieOptions = {};
+
+    // the chart won't be displayed if all the values sum to zero,
+    // so this will show the donut with a special label if that's the case.
+    if (pieData[0].value + pieData[1].value + pieData[2].value == 0) {
+        pieData = [{
+            value: 1,
+            label: 'No Data',
+            color: '#ccc'
+        }];
+        {% verbatim %}
+        pieOptions.tooltipTemplate = "<%if (label){%><%=label%><%}%>";
+        {% endverbatim %}
+    }
+
+	var step = 25;
+	var max = 100;
+	var start = 0;
+
+	var options = {
+        responsive: true,
+        scaleOverride: true,
+        scaleSteps: Math.ceil((max-start)/step),
+        scaleStepWidth: step,
+        scaleStartValue: start
+	};
+
+	// Get the context of the canvas for the total chart
+	var totalChartCtx = document.getElementById("totalChart").getContext("2d");
+	var totalActivityDoughnut = new Chart(totalChartCtx).Doughnut(pieData, pieOptions);
+
+	var monthlyData = {
+        labels: _.pluck(DASHBOARD_CONTEXT.num_transactions_by_day, 'date'),
+        datasets: [
+                {
+                    label: "Quotes",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: _.pluck(DTX.num_transactions_by_day, 'quotes')
+                },
+                {
+                    label: "Pictures",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: _.pluck(DTX.num_transactions_by_day, 'emails')
+                }
+            ]
+	};
+
+	// Get the context of the canvas for the total chart
+	var monthlyChartCtx = document.getElementById("monthlyChart").getContext("2d");
+	var monthlyActivity = new Chart(monthlyChartCtx).Line(monthlyData, options);
+})();
+</script>
+{% endblock js %}

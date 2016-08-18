@@ -1,0 +1,132 @@
+{% extends 'learlight/base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<h1>Accoutns</h1>
+
+<div class="col-top-3">
+    <table id="top-accounts" class="top-three" cellspacing="0" width="100%">
+    	<thead>
+    		<tr>
+    			<th>Top 3 Accounts</th>
+    			<th>Quotes</th>
+    			<th>Pictures</th>
+    			<th>Drops</th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+    			<td><a href="#">Zales</a></td>
+    			<td>34892</td>
+    			<td>500</td>
+    			<td>200</td>
+    		</tr>
+    		<tr>
+    			<td><a href="#">Another store with long name</a></td>
+    			<td>3495</td>
+    			<td>500</td>
+    			<td>200</td>
+    		</tr>
+    		<tr>
+    			<td><a href="#">Kay Jewelers</a></td>
+    			<td>684</td>
+    			<td>500</td>
+    			<td>200</td>
+    		</tr>
+    	</tbody>
+    </table>
+</div>
+<div class="col-action-btn">
+	<a href="#" class="action-big primary"><i class="fa fa-plus"></i> Add Account</a>
+</div>
+
+<div class="col-1">
+	<table id="" class="all-stores" cellspacing="0" width="100%">
+    	<thead>
+    		<tr>
+    			<th><span>Account</span></th>
+    			<th><span>Stores</span></th>
+    			<th><span>Associates</span></th>
+    			<th><span>Quotes</span></th>
+    			<th><span>Pictures</span></th>
+    			<th><span>Drops</span></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+    			<td><a href="{% url 'dashboard:acme' %}">Zales</a></td>
+    			<td><a href="#">14</a></td>
+    			<td>25</td>
+    			<td>3982</td>
+    			<td>24</td>
+    			<td>8</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:acme' %}">Another Store With Long Name</a></td>
+    			<td><a href="#">10</a></td>
+    			<td>37</td>
+    			<td>3495</td>
+    			<td>86</td>
+    			<td>4</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:acme' %}">Kay Jewelers</a></td>
+    			<td><a href="#">566</a></td>
+    			<td>30</td>
+    			<td>684</td>
+    			<td>36</td>
+    			<td>8</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:acme' %}">Don't do it jewelers</a></td>
+    			<td><a href="#">1</a></td>
+    			<td>58</td>
+    			<td>204</td>
+    			<td>95</td>
+    			<td>9</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:acme' %}">ACME</a></td>
+    			<td><a href="#">75</a></td>
+    			<td>26</td>
+    			<td>589</td>
+    			<td>17</td>
+    			<td>3</td>
+    		</tr>
+    		<tr>
+    			<td><a href="{% url 'dashboard:acme' %}">MOHA Diamond Store</a></td>
+    			<td><a href="#">63</a></td>
+    			<td>45</td>
+    			<td>456</td>
+    			<td>34</td>
+    			<td>7</td>
+    		</tr>
+    	</tbody>
+    </table>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+<script>
+
+	$(document).ready(function() {
+	    $('.top-three').DataTable({
+	    	"paging":   false,
+	        "ordering": false,
+	        "info":     false,
+	        "searching":   false
+	    });
+
+	    $('.all-stores').DataTable({
+	    	"order": [[ 3, "desc" ]],
+	    	"lengthChange": false
+	    });
+	} );
+
+</script>
+{% endblock js %}

@@ -1,0 +1,213 @@
+{% extends 'learlight/base.html' %}
+
+{% load static %}
+
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block slider %}
+<div id="image-detail" class="image-detail image-zoom-close">
+    <div class="image-detail-header">
+        <a class="close-slider" href="#">
+            <i class="fa fa-times"></i>
+        </a>
+    </div>
+    <div class="content-inner">
+        <h1>Quote Summary</h1>
+        <dl>
+            <dt>Name:</dt>
+            <dd>Roderick Morlaes</dd>
+            <dt>Email:</dt>
+            <dd>Roderick Morales</dd>
+            <dt>Address:</dt>
+            <dd>
+                3 Main St. Boston, MA 02021
+            </dd>
+            <dt>Phone Number:</dt>
+            <dd>603-333-4444</dd>
+        </dl>
+    </div>
+
+</div>
+{% endblock slider %}
+
+{% block content %}
+<h1>Leads And Quotes</h1>
+
+<div class="col-2-3">
+    <form>
+        <fieldset>
+            <label for="accounts_dd">Account</label>
+            <div class="form-dd">
+                <select class="custome" id="accounts_dd">
+                    <option>All<span></span></option>
+                    <option>Acme</option>
+                    <option>Another Store with long name</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <label for="store_dd">Store</label>
+            <div class="form-dd">
+                <select class="custome" id="store_dd">
+                    <option>Choose a Store</option>
+                    <option>Burlington Mall</option>
+                    <option>Cambrdige Side Gallery</option>
+                </select>
+            </div>
+        </fieldset>
+        <fieldset>
+            <label for="associate_dd">Associate</label>
+            <div class="form-dd">
+                <select class="custome" id="associate_dd">
+                    <option>Choose an Associate</option>
+                    <option>Douglas Hall</option>
+                    <option>Roderick Morales</option>
+                </select>
+            </div>
+        </fieldset>
+    </form>
+    <canvas id="monthlyChart" width="1636" height="818"></canvas>
+</div>
+<div class="col-3">
+    <canvas id="totalChart"></canvas>
+    <div class="daily-attaintment">
+        <span class="attaintment">
+            Attaintment Total
+        </span>
+        <span class="attaintment-total">
+            $3,000,000.00
+        </span>
+    </div>
+</div>
+
+<div class="col-1">
+	<table id="" class="all-stores" cellspacing="0" width="100%">
+    	<thead>
+    		<tr>
+    			<th><span>Name</span></th>
+    			<th><span>Account</span></th>
+    			<th><span>Store</span></th>
+    			<th><span>Jewelry</span></th>
+                <th><span>Lead</span></th>
+                <th><span>Value</span></th>
+    		</tr>
+    	</thead>
+    	<tbody>
+    		<tr>
+    			<td><a href="#" class="open-slider">Micahel Jordan</a><span class="title">#34292923</span></td>
+    			<td>Zales</td>
+    			<td>Burlington Mall<span>Burlington, MA</span></td>
+    			<td>Diamond Ring</td>
+                <td>Quote</td>
+                <td>$4,000.00</td>
+    		</tr>
+    		<tr>
+    			<td><a href="#" class="open-slider">Donald Trump</a><span class="title">#45454542</span></td>
+                <td>Kay</td>
+                <td>Trump Mall<span>New York, NY</span></td>
+                <td>Watch</td>
+                <td>Quote</td>
+                <td>$35,000.00</td>
+    		</tr>
+    		<tr>
+    			<td><a href="#" class="open-slider">Joe Smith</a><span class="title">#6829455</span></td>
+    			<td>Don't do it</td>
+                <td>Men Mall<span>Las Vegas, NV</span></td>
+                <td>Beer Mug</td>
+                <td>Quote</td>
+                <td>$10.00</td>
+    		</tr>
+    	</tbody>
+    </table>
+</div>
+
+
+{% endblock content %}
+
+{% block js %}
+<script>
+
+	$(document).ready(function() {
+        
+
+
+	    $('.top-three').DataTable({
+	    	"paging":   false,
+	        "ordering": false,
+	        "info":     false,
+	        "searching":   false
+	    });
+
+	    $('.all-stores').DataTable({
+            "lengthChange": false
+        });
+
+        var pieData = [
+           {
+              value: 40,
+              label: 'Quote Submitted',
+              color: '#79c08a'
+           },
+           {
+              value: 20,
+              label: 'Picture Submitted',
+              color: '#0195d4'
+           },
+           {
+              value: 10,
+              label: 'Abandon',
+              color: '#f96332'
+           }
+        ];
+
+        // Get the context of the canvas for the total chart
+        var totalChartCtx = document.getElementById("totalChart").getContext("2d");
+        var totalActivityDoughnut = new Chart(totalChartCtx).Doughnut(pieData);
+
+        var step = 25;
+        var max = 100;
+        var start = 0;
+
+        var options = {
+            
+                responsive: true,
+                scaleOverride: true,
+                scaleSteps: Math.ceil((max-start)/step),
+                scaleStepWidth: step,
+                scaleStartValue: start
+            
+        };
+
+        var monthlyData = {
+        labels: ["Aug 1", "Aug 2", "Aug 3", "Aug 4", "Aug 5", "Aug 6"],
+        datasets: [
+                {
+                    label: "My First dataset",
+                    fillColor: "rgba(220,220,220,0.2)",
+                    strokeColor: "rgba(220,220,220,1)",
+                    pointColor: "rgba(220,220,220,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(220,220,220,1)",
+                    data: [4, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor: "rgba(151,187,205,0.2)",
+                    strokeColor: "rgba(151,187,205,1)",
+                    pointColor: "rgba(151,187,205,1)",
+                    pointStrokeColor: "#fff",
+                    pointHighlightFill: "#fff",
+                    pointHighlightStroke: "rgba(151,187,205,1)",
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }
+            ]
+        };
+
+        // Get the context of the canvas for the total chart
+        var monthlyChartCtx = document.getElementById("monthlyChart").getContext("2d");
+        var monthlyActivity = new Chart(monthlyChartCtx).Line(monthlyData, options);
+	});
+
+</script>
+{% endblock js %}

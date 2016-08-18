@@ -1,0 +1,56 @@
+[
+{
+    "fields": {
+        "phone_number": "978-745-2517",
+        "city": "Salem",
+        "parent_account": null,
+        "updated_by": 1,
+        "internal_id": "15-586",
+        "date_updated": "2015-08-08T19:15:15.121Z",
+        "created_by": 1,
+        "state": "MA",
+        "associates": [
+            4,
+            5,
+            6
+        ],
+        "postal_code": "01970",
+        "address": "92 Jackson St.",
+        "owner": 2,
+        "date_created": "2015-07-07T02:02:02.505Z",
+        "logo_image_url": "https://s3.amazonaws.com/learlight-assets/email-jewlery-logo.png",
+        "external_id": 1111,
+        "email": "info@jewelersmutual.com",
+        "name": "JM Test Store"
+    },
+    "model": "learlight.account",
+    "pk": 1
+},
+{
+    "fields": {
+        "phone_number": "978-745-2517",
+        "city": "Salem",
+        "parent_account": null,
+        "updated_by": 1,
+        "internal_id": "15-585",
+        "date_updated": "2015-08-08T19:15:25.617Z",
+        "created_by": 1,
+        "state": "MA",
+        "associates": [
+            7,
+            8,
+            9
+        ],
+        "postal_code": "01970",
+        "address": "92 Jackson St.",
+        "owner": 3,
+        "date_created": "2015-07-12T01:59:10.413Z",
+        "logo_image_url": "https://s3.amazonaws.com/learlight-assets/email-jewlery-logo.png",
+        "external_id": 2222,
+        "email": "learlabscrm@mg.learlabscrm.com",
+        "name": "LearLabs Store"
+    },
+    "model": "learlight.account",
+    "pk": 2
+}
+]

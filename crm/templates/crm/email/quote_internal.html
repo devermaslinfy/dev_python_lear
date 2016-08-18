@@ -1,0 +1,41 @@
+{% extends 'crm/email/base.html' %}
+
+{% load static %}
+{% load format %}
+
+{% block content %}
+<div>
+    <h2>Quote Details</h2>
+    <dl>
+        <dt><strong>LearLabsCRM Transaction ID:</strong> {{ customer.formatted_transaction_id }}</dt>
+        <dt><strong>LearLabsCRM Quote ID:</strong> {{ customer.quote_id }}</dt>
+        <dt><strong>Purchase ID:</strong> {{ customer.purchase_id }}</dt>
+        <dt><strong>Jeweler Name:</strong> {{ account.name }}</dt>
+        <dt><strong>Jeweler ID:</strong> {{ account.external_id }}</dt>
+        <dt><strong>LearLabs CRM Account:</strong> {{ account.internal_id }}</dt>
+        <dt><strong>Date:</strong> {{ customer.date_created|date:"n/d/Y" }}</dt>
+        <dt><strong>Time:</strong> {{ customer.date_created|time:"H:i" }} (UTC)</dt>
+    </dl>
+    <h2>Customer Details</h2>
+    <dl>
+        <dt><strong>Customer Name:</strong> {{ customer.first_name }} {{ customer.last_name }}</dt>
+        <dt><strong>Customer Email:</strong> {{ customer.email }}</dt>
+        <dt><strong>Customer Address:</strong> {{ customer.address }}</dt>
+        <dt><strong>Customer City:</strong> {{ customer.city }}</dt>
+        <dt><strong>Customer County:</strong> {{ customer.county }}</dt>
+        <dt><strong>Customer State:</strong> {{ customer.state }}</dt>
+        <dt><strong>Customer Zip:</strong> {{ customer.postal_code }}</dt>
+        <dt><strong>Customer Country:</strong> {{ customer.country }}</dt>
+        <dt><strong>Customer Phone Number:</strong> {{ customer.phone_number }}</dt>
+    </dl>
+    <h2>Item Details</h2>
+    <dl>
+        <dt><strong>Associate ID:</strong> {{ associate.associate.associate_id }}</dt>
+        <dt><strong>Associate Name:</strong> {{ associate.first_name }} {{ associate.last_name }}</dt>
+        <dt><strong>Item Type:</strong> {{ customer.jewelry_type.name }}</dt>
+        <dt><strong>Item Photo:</strong> <a href="{{ customer.jewelry_image_url }}">{{ customer.jewelry_image_url }}</a></dt>
+        <dt><strong>Receipt Photo:</strong> <a href="{{ customer.receipt_image_url }}">{{ customer.receipt_image_url }}</a></dt>
+        <dt><strong>Estimated Value:</strong> {{ customer.jewelry_value|currency }}</dt>
+    </dl>
+</div>
+{% endblock content %}

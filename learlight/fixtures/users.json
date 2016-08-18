@@ -1,0 +1,164 @@
+[
+{
+    "fields": {
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2015-07-12T01:55:14.708Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$qqkajVm8jQLQ$DZ6IrtYQGxAQjv9WsCZEmQgVlAhcEl9+vIUKRoegSLg=",
+        "email": "admin@learlight.com",
+        "date_joined": "2015-07-07T01:58:13.147Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "username": "JMStore",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-07-10T16:50:37.589Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$VA2dXQkHPso1$1h8bms8G1K9c40xdoYyYaXmWf0J+d/t6w9jW2ALbfcs=",
+        "email": "",
+        "date_joined": "2015-07-07T01:58:48.421Z"
+    },
+    "model": "auth.user",
+    "pk": 2
+},
+{
+    "fields": {
+        "username": "LearLabsStore",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": "2015-07-12T02:05:24.036Z",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$ro1mKeEYSasz$0UuwbvNOkgtWYvqbogWxtmZT0rqpCHxmd9663DkZal4=",
+        "email": "",
+        "date_joined": "2015-07-07T01:59:02.255Z"
+    },
+    "model": "auth.user",
+    "pk": 3
+},
+{
+    "fields": {
+        "username": "Associate1",
+        "first_name": "Associate",
+        "last_name": "1",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": null,
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$APq73eUJm3Zo$1U4C8Yf3lOtPRTHgWx+JINkmGxcIoryMLJ61gEHfMgA=",
+        "email": "",
+        "date_joined": "2015-07-07T01:59:37Z"
+    },
+    "model": "auth.user",
+    "pk": 4
+},
+{
+    "fields": {
+        "username": "Associate2",
+        "first_name": "Associate",
+        "last_name": "2",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": null,
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$GJTShJtmuLhz$SjwEVgac+8deyZ89iNohZK04+YYJg9eiVb8H4y6cPHc=",
+        "email": "",
+        "date_joined": "2015-07-07T01:59:58Z"
+    },
+    "model": "auth.user",
+    "pk": 5
+},
+{
+    "fields": {
+        "username": "Associate3",
+        "first_name": "Associate",
+        "last_name": "3",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": null,
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$2dvsEbM55hTz$8jQKjDEBRNj2NW5XriGQkZOfFCPcnWMBub2r2C7LKKc=",
+        "email": "",
+        "date_joined": "2015-07-07T02:00:26Z"
+    },
+    "model": "auth.user",
+    "pk": 6
+},
+{
+    "fields": {
+        "username": "Associate4",
+        "first_name": "Associate",
+        "last_name": "4",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": null,
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$eE6b9dk8JbUf$71LTb87RfG3Xfl2VX262YzcGKiTTezNHBnsSN9SCBUY=",
+        "email": "",
+        "date_joined": "2015-07-12T01:56:31Z"
+    },
+    "model": "auth.user",
+    "pk": 7
+},
+{
+    "fields": {
+        "username": "Associate5",
+        "first_name": "Associate",
+        "last_name": "5",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": null,
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$pEaf8viU5HEx$g4n00u0V8Itb74navtY81ri4GTDtpcWoHq3T7hfPAlU=",
+        "email": "",
+        "date_joined": "2015-07-12T01:56:48Z"
+    },
+    "model": "auth.user",
+    "pk": 8
+},
+{
+    "fields": {
+        "username": "Associate6",
+        "first_name": "Associate",
+        "last_name": "6",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": null,
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$ZfUy7pKb5NmW$eqNxddNWnATB/0gxgUehQPtCw3/v1URKkoocG4+04yM=",
+        "email": "",
+        "date_joined": "2015-07-12T01:57:04Z"
+    },
+    "model": "auth.user",
+    "pk": 9
+}
+]

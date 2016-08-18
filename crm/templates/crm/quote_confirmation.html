@@ -1,0 +1,12 @@
+{% extends 'crm/base.html' %}
+
+{% load static %}
+
+{% block title %}Quote Confirmation{% endblock title %}
+{% block content %}
+<h1>Quote Submitted</h1>
+<h3>Thank you, your quote request has been submitted!  You will receive your quote from Jewelers Mutual within 3 business days.</h3>
+<div class="clearfix">
+    <a class="btn-primary btn-next" href="{% url 'crm:index' %}">Return Home</a>
+</div>
+{% endblock content %}

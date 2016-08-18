@@ -1,0 +1,301 @@
+@label-font-color: 				#202020;
+
+fieldset{
+	text-align: left;
+	padding: 0em 0 1em 0;
+	border: 0;
+
+	&.blue label{
+		color: @palette-medium-blue;
+	}
+}
+
+input{
+	border: solid 1px #9f9f9f;
+	padding: 1em 4%;
+	width: 91.75%;//8% for LR padding and 1% for border
+
+	&[type=checkbox]{
+		width: auto;
+	}
+
+  	&[type=file]{
+		border: none;
+	}
+
+	&.auto-width{
+		width: auto;
+	}
+}
+
+legend{
+	font-family: @font-family-bold;
+	color: @label-font-color;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	margin-bottom: 1em;
+	text-align: center;
+
+	&.legend-border{
+		text-align: left;
+		border-bottom: solid 2px @label-font-color;
+		width: 100%;
+	}
+
+}
+
+label{
+	font-family: @font-family-bold;
+	color: @label-font-color;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	display: inline-block;
+	margin-bottom: 0.75em;
+}
+
+
+.form-centered{
+	width: 40%;
+	margin: 2em auto;
+
+	& input[type=text]{
+		
+	}
+
+	& .rememberme{
+		text-align: center;
+		padding-top: 1em;
+		padding-bottom: 0;
+		& label{
+			font-family: @font-family-sans-serif;
+			text-transform: none;
+		}
+
+		& p{
+			margin-top: 0.25em;
+			text-align: center;
+		}
+	}
+
+}
+
+.form-customer-info{
+	text-align: left;
+
+	& fieldset{
+		display: inline-block;
+		width: 49%;
+	}
+
+	& .fieldset-email{
+		width: 99.5%;
+	}
+
+	& .fieldset-address{
+		width: 73%;
+	}
+
+	& .fieldset-zip{
+		width: 25%;
+	}
+}
+
+.form-60{
+	width: 60%;
+	margin: 2em auto;
+
+	& .btn-large{
+		width: 30%;
+	}
+}
+
+.form-100{
+	width: 100%;
+	margin: 0.5em 0 0 0;
+}
+
+.jewelry-photo-input, .receipt-photo-input {
+  	position: relative;
+  	margin-top: 1em;
+
+  	& .jewelry-photo-button, & .receipt-photo-button {
+	  	position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: 1;
+	  	width: 100%;
+
+	  	& .fa-spinner, & .fa-check-square {
+		  	display: none;
+		}
+	}
+
+  	& input[type=file] {
+	  	position: relative;
+		opacity: 0;
+		z-index: 2;
+	}
+}
+
+.no-pictures {
+  	display: inline;
+}
+
+.has-pictures {
+  	display: none;
+}
+
+.jewelry-photo-button-active {
+	background: @palette-dark-blue;
+
+  	.no-pictures {
+	  	display: none;
+	}
+
+  	.has-pictures {
+	  	display: inline;
+	}
+}
+	//give more space for the slider pagination buttons
+	.jewelry-photo-input{
+		margin-top: 1.75em;
+	}
+
+.jewelry-pic {
+	padding: 1em 3%;
+	background-color: #fff;
+	border: solid 1px #9f9f9f;
+  	text-align: center;
+
+  	& img {
+		max-width: 400px;
+		max-height: 300px;
+	}
+}
+
+/* ==================================================================== */
+/* Summary form CSS --------------------------------------------------- */
+/* ==================================================================== */
+.form-summary{
+	text-align: left;
+	margin: 0.25em auto;
+
+	.content-inner & h2{
+		margin: 0;
+		font-size: 1.25em;
+		font-family: @font-family-bold;
+		color: @palette-dark-blue;
+	}
+
+	& dl{
+		margin: 0.25em 0;
+	}
+
+	& dt{
+		width: auto;
+		display: block;
+		float: none;
+		text-align: left;
+		float: left;
+	}
+
+	& dd{
+		margin: 0 0 0 1%;
+		display: block;
+		float: left;
+	}
+}
+
+.warning-receipt{
+	padding: 0.5em 5%;
+	background: #fff;
+	border: solid 1px @palette-warning;
+	color: @palette-warning;
+	display: inline-block;
+	width: 90%;
+
+	& div{
+		float: left;
+		display: inline-block;
+	}
+
+	& .icon{
+		font-size: 1.5em;
+		margin-right: 5%;
+	}
+
+	& .msg{
+		width: 80%;
+		line-height: 1.5;
+	}
+}
+
+/* ==================================================================== */
+/* SPECIAL CHECKBOX --------------------------------------------------- */
+/* ==================================================================== */
+
+.special-checkbox .holder{
+	display: inline-block;
+	width: 100%;
+
+	& .center{
+		float: right;
+		margin-left: 1em;
+	}
+}
+
+/* SQUARED THREE */
+input[type="checkbox"]#checkbox-1-3 {
+display: none;
+}
+
+input[type="checkbox"] + label {
+cursor: pointer;
+font-size: 1em;
+}
+
+[id^="checkbox-1-"] + label {
+background-color: #FFF;
+border: 1px solid #C1CACA;
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+padding: 21px;
+border-radius: 5px;
+display: inline-block;
+position: relative;
+margin-right: 30px;
+}
+
+[id^="checkbox-1-"] + label:active {
+box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+[id^="checkbox-1-"]:checked + label {
+background-color: #ECF2F7;
+border: 1px solid #92A1AC;
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05), inset 15px 10px -12px rgba(255, 255, 255, 0.1);
+color: #243441;
+}
+
+[id^="checkbox-1-"]:checked + label:after {
+content: '\2715';
+position: absolute;
+top: 0px;
+left: 0px;
+color: #758794;
+width: 100%;
+text-align: center;
+font-size: 1.4em;
+padding: 1px 0 0 0;
+vertical-align: text-top;
+}
+
+#checkbox-1-3 + label:after{
+	left: 0px;
+	padding: 6px 0 0 0;
+}
+
+#checkbox-1-3 + label:after{
+	top: -6px;
+	left: 0px;
+	padding: 14px 0 0 0;
+}
